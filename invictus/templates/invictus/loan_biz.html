@@ -1,0 +1,103 @@
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+
+	<div class=" w3ls-section" id="inner-about" style="background-color: white;">
+		<div class="container">
+			<h3 class="h3-w3l" style="color: #21a7e2;">Biashara loan</h3>
+		
+		<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-4 sidenav">
+    <img src="{% static 'invictus/images/banner.jpg' %}" style="height: 150px;" alt=" " class="img-responsive"/>
+
+
+    <br>
+      <hr>
+      <br>
+					 <div class="panel-group">
+				  <div class="panel panel-default">
+				    <div class="panel-heading">
+				      <button data-toggle="collapse" data-target="#collapse1"><h4 style="font-size: 30px;color: #21a7e2;">Loan calculator</h4></button>
+				    </div>
+				    <div id="collapse1" class="panel-collapse collapse">
+				      <div class="panel-body">
+				      	<div class=" w3l_contact_form">
+					 
+					<form action="" method="POST">
+						<h4 style="color: #44e221;">Loan amount</h4>
+						<div class="slidecontainer">
+					      <input type="range" min="1000" max="10000" value="50" class="slider" id="amount" onchange="calculate();" data-rangeslider> 
+					    </div>
+					   <input type="text" id="amount_" value="" readonly=""  required="">
+					    <h4 style="color: #44e221;">Loan interest (%)</h4>
+						<div class="slidecontainer">
+						      <input type="range" min="1" max="100" value="1" class="slider" id="apr" data-rangeslider onchange="calculate();"> 
+						  </div>
+						<input type="text" id="interest" value="" readonly=""  required="">
+						<h4 style="color: #44e221;">Repayment period(months)<br> Max(6 years)</h4>
+						  <div class="slidecontainer">
+					      <input type="range" min="1" max="72" value="1" class="slider" id="years" data-rangeslider onchange="calculate();">
+					    </div>
+						<input type="text"  value=""  id="period" readonly="" required="">
+					</form>
+					<div class="panel panel-default">
+					   <div class="panel-body" style="background-color: #dee2e5;">
+					    <h4>Total Payment</h4><span style="color: #21a7e2; font-size: 22px;" id="total">0.00</span>
+					   	<h4>Monthly Payment</h4><span style="color: #21a7e2; font-size: 22px;" id="payment">0.00</span>
+					   	<h4>Total Interest</h4><span style="color: #21a7e2; font-size: 22px;" id="totalinterest">0.00</span>
+					   </div>
+					</div>
+
+				      </div>
+				    </div>
+				  </div>
+				</div> 
+    </div>
+</div>
+    <div class="col-sm-6 text-left"> 
+      <h3>What is it?</h3>
+      <p>Designed to help expand and boost your business, the Unaitas Business Loan makes your business plans a reality.</p>
+      <hr>
+      <h3>Features</h3>
+      <ul class="list-group">
+	  <li class="list-group-item">Loan term is up to 3 years.</li>
+	  <li class="list-group-item">Loan amount dependent on ability.</li>
+	  <li class="list-group-item">Lending in accordance with Sacco lending policy.</li>
+	  <li class="list-group-item">Loan security fund with 10% exemption based on security pledged.</li>
+	  <li class="list-group-item">Flexible repayment frequency.</li>
+	  <br>
+	  <hr>
+	  <h3>Requirements</h3>
+	  <li class="list-group-item">You need to be a Sacco member.</li>
+	  <li class="list-group-item">A duly completed loans application form.</li>
+	  <li class="list-group-item">3 months active account operation or verifiable statement from previous bank.</li>
+	  <br>
+	</ul>
+    </div>
+    <div class="col-sm-2 sidenav">
+    	<h3 style="color: #44e221;">Loan products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Development Loan</a>
+		  <a href="#" class="list-group-item">Biashara Loan</a>
+		  <a href="#" class="list-group-item">Salary Advance</a>
+		  <a href="#" class="list-group-item">Business Quick Fix</a>
+		  <br><hr>
+		  <h3 style="color: #44e221;">Saving products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Timiza savings account</a>
+		  <a href="#" class="list-group-item">Jipange Investment account</a>
+		</div>       
+    </div>
+  </div>
+</div>
+	
+		</div>	
+			
+
+			
+	</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+
+	<div class=" w3ls-section" id="inner-about" style="background-color: white;">
+		<div class="container">
+			<h3 class="h3-w3l" style="color: #21a7e2;">Sacco Deposits</h3>
+		<div class="row content">
+			<img src="{% static 'invictus/images/open_acc.jpeg' %}" style="height: 300px;" alt=" " class="img-responsive"/>
+			
+		</div>
+		<hr>
+		<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-4 sidenav">
+    	<h3 style="color: #44e221;">Sacco Deposits</h3>
+      <br>
+     <p>
+     	These deposits may be used as collateral against borrowings from the Society and shall only be refunded when a member withdraws from membership and provided the member has fully repaid all his debts and is free from guarantee.
+
+		Deposits may however be transferable from one deposit account to another provided the transaction does not contravene the Savings policy.
+
+     </p>
+    	
+	  <br> 
+	  <img src="{% static 'invictus/images/sacco_dep1.jpg' %}"  alt=" " class="img-responsive"/> 
+    </div>
+    <div class="col-sm-4 text-left"> 
+    	<img src="{% static 'invictus/images/sacco_dep.jpeg' %}"  alt=" " class="img-responsive"/> 
+    	<br>
+    	<img src="{% static 'invictus/images/statutory.jpeg' %}"  alt=" " class="img-responsive"/> 
+   
+      <br>
+     
+    </div>
+    <div class="col-sm-4 sidenav">
+    	<h3 style="color: #44e221;">Loan products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Development Loan</a>
+		  <a href="#" class="list-group-item">Biashara Loan</a>
+		  <a href="#" class="list-group-item">Salary Advance</a>
+		  <a href="#" class="list-group-item">Business Quick Fix</a>
+		  <br><hr>
+		  <h3 style="color: #44e221;">Saving products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Timiza savings account</a>
+		  <a href="#" class="list-group-item">Jipange Investment account</a>
+		</div>       
+    </div>
+  </div>
+</div>
+	
+		</div>	
+			
+
+			
+	</div>
+
+{% endblock %}

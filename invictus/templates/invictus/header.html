@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Invictus Sacco</title>
+{% load staticfiles %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Invictus Sacco , Invictus" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'invictus/styles/bootstrap.css' %}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'invictus/styles/style.css' %}" type="text/css" rel="stylesheet" media="all">
+<link href="{% static 'invictus/styles/font-awesome.css' %}" rel="stylesheet">   <!-- font-awesome icons --> 
+<!-- //Custom Theme files -->  
+<!-- js --> 
+  <script src="{% static 'invictus/js/jquery-2.2.3.min.js' %}"></script>
+<!-- web-fonts -->
+<link href="//fonts.googleapis.com/css?family=Secular+One" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<!-- //web-fonts --> 
+<style type="text/css">
+  .slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    background: #21a7e2;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    background: #21a7e2;
+    cursor: pointer;
+}
+
+.content-box{ display:none;}
+.active-content,.active-content-new{  display:block;}
+/*
+==============
+LEFT SECTION 
+===============
+*/
+.left-section ul li a {
+    display: block;
+    padding: 6px;
+    background: #f00;
+    color: #fff;
+    margin-bottom: 7px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    text-align: center;
+    font-size: 28px;
+}
+.right-section {
+    padding: 40px;
+    background: #f5f5f5;
+}
+.active-tab-menu a,.active-tab-menu-new a {
+    background: #4CAF50 !important;
+}
+.left-section ul li{ list-style-type:none;}
+.left-section ul{ padding:0px; margin:0px;}
+.custom-button-section a {
+    display: block;
+    padding: 10px;
+    float: left;
+    background: #f00;
+    color: #fff;
+    margin-right: 10px;
+    width: 100px;
+    text-align: center;
+}
+.button-row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.button-row {
+    margin-top: 36px;
+}
+.Hide-this{ display:none;}
+
+
+</style>
+
+</head>
+<body> 
+  <!-- header -->
+  <div class="headerw3-agile"> 
+    <div class="header-w3mdl"><!-- header-two --> 
+      <div class="container"> 
+        <div class="agileits-logo navbar-left">
+          <h2><a href="index.html"><img src="{% static 'invictus/images/invictus.JPG' %}" alt="logo" style='height:100px;width: 150px;' class="img-responsive" /></a></h2> 
+        </div> 
+        <div class="agileits-hdright nav navbar-nav">
+          <div class="header-w3top"><!-- header-top --> 
+            <ul class="w3l-nav-top">
+              <li><i class="fa fa-phone"></i><span> 0795859352 </span></li> 
+              <li><a href="mailto:example@mail.com"><i class="fa fa-envelope-o"></i><span>gathage.ew@gmail.com</span></a></li>
+            </ul>
+            <div class="clearfix"> </div>    
+          </div>
+          <div class="agile_social_banner">
+            <ul class="agileits_social_list">
+              <li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+
+            </ul>
+          </div>
+ 
+
+        </div>
+        </div> 
+        <div class="clearfix"> </div> 
+      </div>  
+    </div>  
+  </div>  
+  <!-- //header -->  
+  <!-- banner -->
+  <div class="banner">
+    <div class="header-nav"><!-- header-three -->   
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            Menu 
+          </button> 
+        </div>
+        <!-- top-nav -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/about/" class="scroll">About</a></li>
+            <li><a href="/loan_dev/" data-toggle="dropdown">Loans<span class="caret"></span></a>
+
+              <ul class="dropdown-menu">
+                <li><h4>Long term loans</h4></li>
+                <li><a href="/loan_dev/">Development loan</a></li>
+                <li><a href="/loan_biz/">Biashara loan</a></li>
+                <li><h4>Short term loans</h4></li>
+                <li><a href="/salary_adv/">Salary advance</a></li>
+                <li><a href="/biz_fix/">Business quick fix</a></li>
+              </ul>
+            </li> 
+            <li><a href="/timiza/" data-toggle="dropdown">Savings<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/timiza/">Timiza savings account</a></li>
+                <li><a href="/jipange">Jipange investment account</a></li>
+              </ul>
+            </li> 
+            <li><a href="/open_acc/" data-toggle="dropdown">Membership<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/open_acc/">Opening an account</a></li>
+                <li><a href="/member_reg/">Membership Application Form</a></li>
+                <li><a href="/statuary/">Statutory information</a></li>
+                <li><a href="/investment/">Investment shares</a></li>
+                <li><a href="/sacco_dep/">Sacco deposits</a></li>
+              </ul>
+            </li>            
+            <li><a href="/contact/" class="scroll">Contact Us</a></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            
+            {% if user.is_authenticated %}
+             <li><a href="/logout/" class="scroll">logout</a></li>
+            {% else %}
+                <li><a href="/login/">login</a></li>
+            {% endif %}
+
+          </ul> 
+
+          <div class="clearfix"> </div> 
+        </div>
+      </nav>    
+    </div>
+    <!-- banner-text -->
+   {% block content %}
+   {% endblock %} 
+<!--footer-->
+<div class="agile-footer w3ls-section">
+  <div class="container">
+    <div class="col-md-7 list-footer">
+      <ul class="footer-nav">
+        <li><a  href="index.html">Home</a></li>
+        <li><a  href="about.html">About</a></li>
+        <li><a  href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <p>At Invictus Sacco we are better together.</p>
+    </div>
+    <div class="col-md-5 agileinfo-sub">
+      <h6>Click the link below to start the subscription service</h6>
+      <a href="#" data-toggle="modal" data-target="#myModal1">subscribe</a>
+    </div>
+    <div class="clearfix"></div>
+     </div>
+</div>   
+<div class="w3_agile-copyright text-center">
+    <p>© 2018 Invictus Sacco. All rights reserved | Design by Invictus softwares</p>
+  </div>
+<!--//footer--> 
+
+  <!-- modal-sign -->
+  <div class="modal bnr-modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="{% static 'invictus/images/modal.jpg' %}" class="img-responsive" alt="image">
+          <p>At the dawn of each day, the sun rises across the Kenyan land;Each one of us desiring to do the best around them;We all share the passion, determination and hope to fulfill our goals; Committed and unwavering in our journey in nation building; Our stories tell of how we have touched each other’s lives;Unaitas walks with you sharing our wisdom defined financial solutions that suit you; With years of experience, we have been a partner and anchor to many for generations; Unaitas…YOU AND ME.</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+  <!-- modal-sign -->
+  <div class="modal bnr-modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img src="{% static 'invictus/images/invictus.jpg' %}" alt="Invictus"/>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>            
+        </div> 
+        <div class="modal-body modal-spa">
+          <p>E-Banking's email newsletter provides subscribers with helpful articles on important issues in the banking industry, as well as news about events and more! To sign up for the newsletter, fill the below form.</p>
+          <form class=" wthree-subsribe" action="#" method="post"> 
+            <input type="text" name="name" placeholder="Your Name" required="">
+            <input type="email" name="email" placeholder="your Email" required="">
+            <input type="submit" value="SignUp"> 
+            <div class="clearfix"></div>
+          </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+  <!-- //modal-sign -->    
+  <!-- //banner -->
+    <!-- //banner-text -->  
+  <!-- //banner -->
+  <!-- banner Slider starts Here -->
+  <script src="{% static 'invictus/js/responsiveslides.min.js' %}"></script>
+  <script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+      // Slideshow 3
+      $("#slider3").responsiveSlides({
+      auto:true,
+      pager:false,
+      nav: true,
+      speed: 500,
+      namespace: "callbacks",
+      before: function () {
+        $('.events').append("<li>before event fired.</li>");
+      },
+      after: function () {
+        $('.events').append("<li>after event fired.</li>");
+      }
+      });
+  
+    });
+  </script>
+  <script src="{% static 'invictus/js/SmoothScroll.min.js' %}"></script>
+  <!-- smooth-scrolling-of-move-up -->
+  <script type="text/javascript" src="{% static 'invictus/js/move-top.js' %}"></script>
+  <script type="text/javascript" src="{% static 'invictus/js/easing.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*
+      var defaults = {
+        containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+      };
+      */
+      
+      $().UItoTop({ easingType: 'easeOutQuart' });
+      
+    });
+  </script>
+  <!-- //smooth-scrolling-of-move-up -->  
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script>
+
+var slider = document.getElementById("amount");
+document.getElementById("amount_").value = slider.value;
+
+slider.oninput = function() {
+document.getElementById("amount_").value = this.value;
+}
+
+var inte = document.getElementById("apr");
+document.getElementById("interest").value = inte.value;
+
+inte.oninput = function() {
+document.getElementById("interest").value = this.value;
+}
+
+var peri = document.getElementById("years");
+document.getElementById("period").value = peri.value;
+
+peri.oninput = function() {
+document.getElementById("period").value = this.value;
+}
+
+</script>
+
+<script>
+"use strict";
+
+function calculate() {
+// Look up the input and output elements in the document
+var amount = document.getElementById("amount");
+var apr = document.getElementById("apr");
+var years = document.getElementById("years");
+var payment = document.getElementById("payment");
+var total = document.getElementById("total");
+var totalinterest = document.getElementById("totalinterest");
+
+// Get the user's input from the input elements. Assume it is all valid.
+// Convert interest from a percentage to a decimal, and convert from
+// an annual rate to a monthly rate. Convert payment period in years
+// to the number of monthly payments.
+var principal = parseFloat(amount.value);
+var interest = parseFloat(apr.value) / 100 / 12;
+var payments = parseFloat(years.value);
+// Now compute the monthly payment figure.
+var x = Math.pow(1 + interest, payments); // Math.pow() computes powers
+var monthly = (principal*x*interest)/(x-1);
+// If the result is a finite number, the user's input was good and
+// we have meaningful results to display
+document.getElementById("payment").innerHTML = monthly.toFixed(2);
+document.getElementById("total").innerHTML= (monthly * payments).toFixed(2);
+document.getElementById("totalinterest").innerHTML = ((monthly*payments)-principal).toFixed(2);
+
+}
+
+</script>
+    <script src="{% static 'invictus/js/bootstrap.js' %}"></script>
+
+
+</body>
+</html>

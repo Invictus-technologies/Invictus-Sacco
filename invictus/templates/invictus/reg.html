@@ -1,0 +1,168 @@
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+
+<style type="text/css">
+ .form_label{
+  text-align: left;
+}
+</style>
+  <div class=" w3ls-section" id="inner-about" style="background-color: white;width: 100%;">
+    <div class="container">
+      <h3 class="h3-w3l" style="color: #21a7e2;">Biashara loan</h3>
+    
+    <div class="container-fluid text-center" >    
+  <div class="row content" style="width: 100%;">
+
+ <div  style="width: 100%;">
+        <h4 style="font-size: 22px;text-align: center;color: #21a7e2;">Fill the form below to register as Invictus member</h4>
+    <form action="" method="POST" >
+      <div class="col-sm-6 sidenav">
+         <div class="panel panel-default">
+          <div class="panel-body">
+                     <fieldset class="form-wrapper" id="edit-personal-details"><legend><span class="fieldset-legend">Personal details</span></legend><div class="fieldset-wrapper with-legend"><div class="fieldset-description"></div><div class="form-item form-type-textfield form-item-fullname">
+  <p>Full Name <span class="form-required" title="This field is required.">*</span></p>
+ <input placeholder="Full Name" type="text" id="edit-fullname" name="fullname" value="" maxlength="128" class="form-text required" />
+</div>
+<div  class="container-inline-date"><div class="form-item form-type-date-popup form-item-date-of-birth">
+  <label class="form_label" for="edit-date-of-birth">Date of Birth <span class="form-required" title="This field is required.">*</span></label>
+ <div id="edit-date-of-birth"  class="date-padding"><div class="form-item form-type-textfield form-item-date-of-birth-date">
+  <input placeholder="Date of birth" type="text" id="edit-date-of-birth-datepicker-popup-0" name="date_of_birth[date]" value=""  maxlength="30" class="form-text" />
+<div class="description"> E.g., 10-Feb-2018</div>
+</div>
+</div>
+</div>
+</div><div class="form-item form-type-textfield form-item-idno">
+  <label class="form_label" for="edit-idno">ID Number <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="ID Number" type="text" id="edit-idno" name="idno" value="" maxlength="128" class="form-text required" />
+</div>
+<div class="form-item form-type-textfield form-item-employer">
+  <label class="form_label" for="edit-employer">Employer <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Employer Name" type="text" id="edit-employer" name="employer" value="" maxlength="128" class="form-text required" />
+</div>
+<div class="form-item form-type-textfield form-item-official-designation">
+  <label class="form_label" for="edit-official-designation">Official Designation <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Official Designation" type="text" id="edit-official-designation" name="official_designation" value=""  maxlength="128" class="form-text required" />
+</div>
+<div class="form-item form-type-textfield form-item-terms-of-service">
+  <label class="form_label" for="edit-terms-of-service">Terms of Service <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Terms of Service" type="text" id="edit-terms-of-service" name="terms_of_service" value="" maxlength="128" class="form-text required" />
+</div>
+<div class="form-item form-type-textfield form-item-address">
+  <label class="form_label" for="edit-address">Address <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Address" type="text" id="edit-address" name="address" value=""  maxlength="128" class="form-text required" />
+</div>
+<div class="form-item form-type-select form-item-county">
+  <label class="form_label" for="edit-county">Region <span class="form-required" title="This field is required.">*</span></label>
+ <select placeholder="Region" id="edit-county" name="county" class="form-select required"><option value="" selected="selected">- Select -</option><option value="NAIROBI">NAIROBI</option><option value="MOMBASA">MOMBASA</option><option value="KWALE">KWALE</option><option value="KILIFI">KILIFI</option><option value="TANA_RIVER">TANA RIVER</option><option value="TAITA_TAVETA">TAITA TAVETA</option><option value="GARISA">GARISA</option><option value="WAJIR">WAJIR</option><option value="MANDERA">MANDERA</option><option value="MARSABIT">MARSABIT</option><option value="ISIOLO">ISIOLO</option><option value="MERU">MERU</option><option value="THARAKA_NITHI">THARAKA NITHI</option><option value="EMBU">EMBU</option><option value="KITUI">KITUI</option><option value="MACHAKOS">MACHAKOS</option><option value="MAKUENI">MAKUENI</option><option value="NYANDARUA">NYANDARUA</option><option value="NYERI">NYERI</option><option value="KIRINYAGA">KIRINYAGA</option><option value="MURANGA">MURANGA</option><option value="KIAMBU">KIAMBU</option><option value="TURKANA">TURKANA</option><option value="WEST_POKOT">WEST POKOT</option><option value="SAMBURU">SAMBURU</option><option value="TRANS_NZOIA">TRANS NZOIA</option><option value="UASIN_GISHU">UASIN-GISHU</option><option value="ELGEYO_MARAKWET">KEIYO MARAKWET</option><option value="NANDI">NANDI</option><option value="BARINGO">BARINGO</option><option value="LAIKIPIA">LAIKIPIA</option><option value="NAKURU">NAKURU</option><option value="NAROK">NAROK</option><option value="KAJIADO">KAJIADO</option><option value="BOMET">BOMET</option><option value="KERICHO">KERICHO</option><option value="KAKAMEGA">KAKAMEGA</option><option value="VIHIGA">VIHIGA</option><option value="BUNGOMA">BUNGOMA</option><option value="BUSIA">BUSIA</option><option value="SIAYA">SIAYA</option><option value="KISUMU">KISUMU</option><option value="HOMABAY">HOMABAY</option><option value="MIGORI">MIGORI</option><option value="KISII">KISII</option><option value="NYAMIRA">NYAMIRA</option><option value="LAMU">LAMU</option></select>
+</div>
+<div class="form-item form-type-textfield form-item-church">
+  <label class="form_label" for="edit-church">Church <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Your church" type="text" id="edit-church" name="church" value=""  maxlength="128" class="form-text required" />
+</div>
+<div class="form-item form-type-textfield form-item-mobile-number">
+  <label class="form_label"  for="edit-mobile-number">Mobile Number <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Mobile Number" type="text" id="edit-mobile-number" name="mobile_number" value=""  maxlength="128" class="form-text required" />
+</div>
+<div class="form-item form-type-textfield form-item-email-address">
+  <label class="form_label" for="edit-email-address">Email Address <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Email Address" type="text" id="edit-email-address" name="email_address" value=""  maxlength="128" class="form-text required" />
+ <br>
+ <br>
+ <br>
+</div>
+</div></fieldset>
+</div>
+</div>
+         <div class="panel panel-default">
+          <div class="panel-body">
+            <fieldset class="form-wrapper" id="edit-monthly-share-contribution"><legend><span class="fieldset-legend">Monthly share contribution</span></legend><div class="fieldset-wrapper with-legend"><div class="form-item form-type-textfield form-item-monthly-conribution">
+  <label class="form_label" for="edit-monthly-conribution">How much do you commit to contribute every month <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Monthly Contribution" type="text" id="edit-monthly-conribution" name="monthly_conribution" value=""  maxlength="128" class="form-text required" />
+<div class="description">Minimum 500ksh per month</div>
+</div>
+</div></fieldset>
+            </div>
+          </div>
+</div>
+<div class="col-sm-6 sidenav">
+           <div class="panel panel-default">
+          <div class="panel-body">
+  <fieldset class="form-wrapper" id="edit-next-of-kin-details"><legend><span class="fieldset-legend">Nominated Next of Kin</span></legend><div class="fieldset-wrapper with-legend"><div class="fieldset-description">I the under mentioned, in the event of death, hereby instruct the society to pay all the amount due to me 
+less any debt to the society to the person named below. I understand I may alter the name of the 
+nominated next of kin by filling in a subsequent nominated next of kin form.</div><div class="form-item form-type-textfield form-item-next-of-kin-full-names">
+  <label class="form_label" for="edit-next-of-kin-full-names">Next of Kin Fullname </label>
+ <input placeholder="Full Name" type="text" id="edit-next-of-kin-full-names" name="next_of_kin_full_names" value=""  maxlength="128" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-next-of-kin-idno">
+  <label class="form_label" for="edit-next-of-kin-idno">Nex of Kin ID Number </label>
+ <input placeholder="ID Number" type="text" id="edit-next-of-kin-idno" name="next_of_kin_idno" value="" maxlength="128" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-next-of-kin-relationship">
+  <label class="form_label" for="edit-next-of-kin-relationship">Relationship </label>
+ <input placeholder="Relationship" type="text" id="edit-next-of-kin-relationship" name="next_of_kin_relationship" value=""  maxlength="128" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-next-of-kin-mobile-number">
+  <label class="form_label" for="edit-next-of-kin-mobile-number">Next of Kin Phone Number </label>
+ <input placeholder="Mobile Number" type="text" id="edit-next-of-kin-mobile-number" name="next_of_kin_mobile_number" value=""  maxlength="128" class="form-text" />
+</div>
+</div></fieldset>
+</div>
+</div>
+           <div class="panel panel-default">
+          <div class="panel-body">
+            <fieldset class="form-wrapper" id="edit-uploads"><legend><span class="fieldset-legend">Document uploads</span></legend><div class="fieldset-wrapper with-legend"><div class="fieldset-description">You are required to upload your passport image and scanned copy of you ID both front and back side</div><div id="edit-id-back-ajax-wrapper"><div class="form-item form-type-managed-file form-item-id-back">
+  <label class="form_label" for="edit-id-back">Back page of your ID Card <span class="form-required" title="This field is required.">*</span></label>
+ <input type="file" id="edit-id-back-upload" name="files[id_back]" class="form-file" /><input type="submit" id="edit-id-back-upload-button" name="id_back_upload_button" value="Upload" class="form-submit" /><input type="hidden" name="id_back[fid]" value="0" />
+
+<div class="description">Allowed extensions: gif png jpg jpeg</div>
+</div>
+</div><div id="edit-id-front-ajax-wrapper"><div class="form-item form-type-managed-file form-item-id-front">
+  <label class="form_label" for="edit-id-front">Front page of your ID Card <span class="form-required" title="This field is required.">*</span></label>
+ <input type="file" id="edit-id-front-upload" name="files[id_front]"  class="form-file" /><input type="submit" id="edit-id-front-upload-button" name="id_front_upload_button" value="Upload" class="form-submit" /><input type="hidden" name="id_front[fid]" value="0" />
+
+<div class="description">Allowed extensions: gif png jpg jpeg</div>
+</div>
+</div></div></fieldset>
+            </div>
+          </div>
+          <div class="panel panel-default">
+          <div class="panel-body" style="text-align: left;">
+            <fieldset class="form-wrapper" id="edit-payments"><legend><span class="fieldset-legend">Registration fees</span></legend><div class="fieldset-wrapper with-legend"><div class="fieldset-description">You are required to pay a registration fee of 1000Ksh. <br>
+            <ul><li>Go to your MPESA and select pay bill option</li>
+            <li>Enter business number 821945</li>
+            <li>Enter your ID number as account number</li>
+            <li>Enter amount</li>
+          </ul> 
+        You will receive confirmation from MPESA, enter transaction reference in the field below</div><div class="form-item form-type-textfield form-item-transaction-reference">
+  <label class="form_label" for="edit-transaction-reference">MPESA transaction code <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="MPESA reference code" type="text" id="edit-transaction-reference" name="transaction_reference" value=""  maxlength="128" class="form-text required" />
+</div>
+</div>
+</fieldset>
+          </div>
+        </div>
+
+</div>
+<div class="col-sm-12">
+            <div class="panel panel-default">
+          <div class="panel-body">
+             <fieldset class="form-wrapper" id="edit-confirmation"><legend><span class="fieldset-legend">By-laws agreement</span></legend><div class="fieldset-wrapper with-legend"><div class="fieldset-description">By clicking submit button, I, the applicant therefore hereby agree to abide by the society’s by-laws and any amendments thereof</div><input type="submit" id="edit-submit" name="op" value="Submit" class="form-submit" /></div></fieldset>
+          </div>
+        </div>
+  
+</div>
+    </form>        
+  
+</div>
+  
+    </div>  
+      
+
+      
+  </div>
+</div>
+
+{% endblock %}
+
+

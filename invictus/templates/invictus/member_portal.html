@@ -1,0 +1,189 @@
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+
+<head>
+	<style type="text/css">
+		
+/*  bhoechie tab */
+div.bhoechie-tab-container{
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 0 !important;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  border:1px solid #ddd;
+  margin-top: 20px;
+  margin-left: 50px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  background-clip: padding-box;
+  opacity: 0.97;
+  filter: alpha(opacity=97);
+}
+div.bhoechie-tab-menu{
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+  border-right:1px solid #e6e8ed;
+}
+div.bhoechie-tab-menu div.list-group{
+  margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a{
+  margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a .glyphicon,
+div.bhoechie-tab-menu div.list-group>a .fa {
+  color: #21a7e2;
+}
+div.bhoechie-tab-menu div.list-group>a:first-child{
+  border-top-right-radius: 0;
+  -moz-border-top-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a:last-child{
+  border-bottom-right-radius: 0;
+  -moz-border-bottom-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a.active,
+div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+div.bhoechie-tab-menu div.list-group>a.active .fa{
+  background-color:#ffffff;
+  background-image: #44e221;
+  color: #21a7e2;
+}
+div.bhoechie-tab-menu div.list-group>a.active:after{
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -13px;
+  border-left: 0;
+  border-bottom: 13px solid transparent;
+  border-top: 13px solid transparent;
+  border-left: 10px solid  #142340;
+}
+
+div.bhoechie-tab-content{
+  background-color: #ffffff;
+  /* border: 1px solid #eeeeee; */
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+div.bhoechie-tab div.bhoechie-tab-content:not(.active){
+  display: none;
+}
+.bhoechie-tab-content h4{
+  color: #44e221;
+
+}
+.bhoechie-tab-content button{
+  padding: 25px;
+  margin-top: 20px
+  background-color:#44e221;
+}
+
+
+	</style>
+</head>
+	<div class="w3ls-section contact" style="background-color: white;">
+<div class="container">
+	<div class="row">
+        <div class="col-md-12 bhoechie-tab-container">
+            <div class="col-md-2 bhoechie-tab-menu">
+              <div class="list-group">
+                <div class="profile" align="center" valign="center">  
+                <br>                
+                  <img src="{% static 'invictus/images/13.jpg' %}" class="img-circle" alt="Profile Photo" width="100px" height="100px"> 
+                  <h3>Welcome Emmanuel</h3>
+                  <h5>Account No.</h5><h5>1234567</h5>
+                </div>
+                <hr>
+                <a href="#profile" data-toggle="pill" class="list-group-item active text-center">
+                  <h4>My Profile</h4>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>My Profile</h4>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>My Account</h4>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>Loans</h4>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>Savings</h4>
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4>Help</h4>
+                </a>
+              </div>
+            </div>
+            <div class=" bhoechie-tab col-md-10">
+            	
+                <!-- flight section -->
+                <div id="profile" class="bhoechie-tab-content col-md-12 active container">
+                    <center>
+                      <div class="row info" style="border-bottom:1px solid #e6e8ed;padding-bottom: 10px;">
+                        <button type="button" class="btn">
+                        <h4>Change Photo</h4>
+                      </button>
+                        <button type="button" class="btn">
+                        <h4>Change Pin</h4>
+                      </button>
+                      <button type="button" class="btn">
+                        <h4>Change Month Contribution</h4>
+                      </button>
+                     
+                    
+                    </div>
+                    <div class="row">
+                      
+                    </div>
+
+
+                    </center>
+                </div>
+                <!-- train section -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                      
+                    </center>
+                </div>
+    
+                <!-- hotel search -->
+                <div class="bhoechie-tab-content">
+                    <center>
+                     
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+                     
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+                     
+                    </center>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+	</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+    });
+});
+</script>
+{% endblock %}

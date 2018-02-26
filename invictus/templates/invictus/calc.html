@@ -1,0 +1,613 @@
+memberno = request.session['post.member_no']
+             request.session['memberno'] = memberno
+             fname = request.session['post.fullname']
+             request.session['post.fname'] = fname
+
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+<head>
+  <link href="{% static 'invictus/css/css/bootstrap.min.cssbootstrap.css' %} " rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="{% static 'invictus/css/css/style.css' %}" rel='stylesheet' type='text/css' />
+<!-- Graph CSS -->
+<link href="{% static 'invictus/css/css/font-awesome.css' %}" rel="stylesheet"> 
+<!-- jQuery -->
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="{% static 'invictus/css/css/icon-font.min.css' %}" type='text/css' />
+<!-- /js -->
+<script src="{% static 'invictus/js/js/jquery-1.10.2.min.js' %}"></script>
+</head>
+  <div class=" w3ls-section" id="inner-about" style="background-color: white;width: 100%;">
+    <div class="container">
+   <div class="page-container">
+   <!--/content-inner-->
+  <div class="left-content">
+     <div class="inner-content">
+    <!-- header-starts -->
+      <div class="header-section">
+            <!--menu-right-->
+            <div class="top_menu">
+                    <div class="main-search">
+                      <form>
+                         <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
+                        <input type="submit" value=""/>
+                      </form>
+                  <div class="close"><img src="images/cross.png" /></div>
+                </div>
+                  <div class="srch"><button></button></div>
+                  <script type="text/javascript">
+                     $('.main-search').hide();
+                    $('button').click(function (){
+                      $('.main-search').show();
+                      $('.main-search text').focus();
+                    }
+                    );
+                    $('.close').click(function(){
+                      $('.main-search').hide();
+                    });
+                  </script>
+              <!--/profile_details-->
+                <div class="profile_details_left">
+                  <ul class="nofitications-dropdown">
+                      <li class="dropdown note">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i> <span class="badge blue1">9</span></a>
+                    <ul class="dropdown-menu two">
+                    <li>
+                      <div class="notification_header">
+                        <h3>You have 9 pending task</h3>
+                      </div>
+                    </li>
+                    <li><a href="#">
+                        <div class="task-info">
+                        <span class="task-desc">Database update</span><span class="percentage">40%</span>
+                        <div class="clearfix"></div>  
+                         </div>
+                        <div class="progress progress-striped active">
+                         <div class="bar yellow" style="width:40%;"></div>
+                      </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="task-info">
+                        <span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
+                         <div class="clearfix"></div> 
+                      </div>
+                       
+                      <div class="progress progress-striped active">
+                         <div class="bar green" style="width:90%;"></div>
+                      </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="task-info">
+                        <span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+                        <div class="clearfix"></div>  
+                      </div>
+                       <div class="progress progress-striped active">
+                         <div class="bar red" style="width: 33%;"></div>
+                      </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="task-info">
+                        <span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+                         <div class="clearfix"></div> 
+                      </div>
+                      <div class="progress progress-striped active">
+                         <div class="bar  blue" style="width: 80%;"></div>
+                      </div>
+                    </a></li>
+                    <li>
+                      <div class="notification_bottom">
+                        <a href="#">See all pending task</a>
+                      </div> 
+                    </li>
+                  </ul>
+              </li> 
+                  
+                    <li class="dropdown note">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope-o"></i> <span class="badge">3</span></a>
+
+                        
+                          <ul class="dropdown-menu two first">
+                            <li>
+                              <div class="notification_header">
+                                <h3>You have 3 new messages  </h3> 
+                              </div>
+                            </li>
+                            <li><a href="#">
+                               <div class="user_img"><img src="images/1.jpg" alt=""></div>
+                               <div class="notification_desc">
+                              <p>Lorem ipsum dolor sit amet</p>
+                              <p><span>1 hour ago</span></p>
+                              </div>
+                               <div class="clearfix"></div> 
+                             </a></li>
+                             <li class="odd"><a href="#">
+                              <div class="user_img"><img src="images/in.jpg" alt=""></div>
+                               <div class="notification_desc">
+                              <p>Lorem ipsum dolor sit amet </p>
+                              <p><span>1 hour ago</span></p>
+                              </div>
+                              <div class="clearfix"></div>  
+                             </a></li>
+                            <li><a href="#">
+                               <div class="user_img"><img src="images/in1.jpg" alt=""></div>
+                               <div class="notification_desc">
+                              <p>Lorem ipsum dolor sit amet </p>
+                              <p><span>1 hour ago</span></p>
+                              </div>
+                               <div class="clearfix"></div> 
+                            </a></li>
+                            <li>
+                              <div class="notification_bottom">
+                                <a href="#">See all messages</a>
+                              </div> 
+                            </li>
+                          </ul>
+                    </li>
+                    
+              <li class="dropdown note">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o"></i> <span class="badge">5</span></a>
+
+                  <ul class="dropdown-menu two">
+                    <li>
+                      <div class="notification_header">
+                        <h3>You have 5 new notification</h3>
+                      </div>
+                    </li>
+                    <li><a href="#">
+                      <div class="user_img"><img src="images/in.jpg" alt=""></div>
+                       <div class="notification_desc">
+                      <p>Lorem ipsum dolor sit amet</p>
+                      <p><span>1 hour ago</span></p>
+                      </div>
+                      <div class="clearfix"></div>  
+                     </a></li>
+                     <li class="odd"><a href="#">
+                      <div class="user_img"><img src="images/in5.jpg" alt=""></div>
+                       <div class="notification_desc">
+                      <p>Lorem ipsum dolor sit amet </p>
+                      <p><span>1 hour ago</span></p>
+                      </div>
+                       <div class="clearfix"></div> 
+                     </a></li>
+                     <li><a href="#">
+                      <div class="user_img"><img src="images/in8.jpg" alt=""></div>
+                       <div class="notification_desc">
+                      <p>Lorem ipsum dolor sit amet </p>
+                      <p><span>1 hour ago</span></p>
+                      </div>
+                       <div class="clearfix"></div> 
+                     </a></li>
+                     <li>
+                      <div class="notification_bottom">
+                        <a href="#">See all notification</a>
+                      </div> 
+                    </li>
+                  </ul>
+              </li> 
+                                    
+              <div class="clearfix"></div>  
+                </ul>
+              </div>
+              <div class="clearfix"></div>  
+              <!--//profile_details-->
+            </div>
+            <!--//menu-right-->
+          <div class="clearfix"></div>
+        </div>
+          <!-- //header-ends -->
+            <!--outter-wp-->
+              <div class="outter-wp">
+                  <!--sub-heard-part-->
+                    <div class="sub-heard-part">
+                     <ol class="breadcrumb m-b-0">
+                      <li><a href="index.html">Home</a></li>
+                      <li class="active">Profile</li>
+                    </ol>
+                     </div>
+                    <!--//sub-heard-part-->
+                    
+                  </div>
+                  <!--//outer-wp-->
+                          
+                </div>
+              </div>
+        <!--//content-inner-->
+      <!--/sidebar-menu-->
+        <div class="sidebar-menu">
+          <header class="logo">
+          <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html"> <span id="logo"> <h1>Augment</h1></span> 
+          <!--<img id="logo" src="" alt="Logo"/>--> 
+          </a> 
+        </header>
+      <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+      <!--/down-->
+              <div class="down">  
+                    <a href="index.html"><img src="images/admin.jpg"></a>
+                    <a href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
+                   <p>System Administrator in Company</p>
+                  <ul>
+                  <li><a class="tooltips" href="index.html"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+                    <li><a class="tooltips" href="index.html"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
+                    <li><a class="tooltips" href="index.html"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+                    </ul>
+                  </div>
+                 <!--//down-->
+                <div class="menu">
+                  <ul id="menu" >
+                    <li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
+                     <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Tabs &amp; Panels</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                       <ul id="menu-academico-sub" >
+                      <li id="menu-academico-avaliacoes" ><a href="tabs.html"> Tabs &amp; Panels</a></li>
+                      <li id="menu-academico-boletim" ><a href="widget.html">Widgets</a></li>
+                      <li id="menu-academico-avaliacoes" ><a href="calender.html">Calendar</a></li>
+                      
+                      </ul>
+                    </li>
+                     <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i> <span>Ui Elements</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                       <ul id="menu-academico-sub" >
+                        <li id="menu-academico-avaliacoes" ><a href="forms.html">Forms</a></li>
+                        <li id="menu-academico-boletim" ><a href="validation.html">Validation Forms</a></li>
+                        <li id="menu-academico-boletim" ><a href="table.html">Tables</a></li>
+                        <li id="menu-academico-boletim" ><a href="buttons.html">Buttons</a></li>
+                        </ul>
+                     </li>
+                  <li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Typography</span></a></li>
+                  <li id="menu-academico" ><a href="#"><i class="lnr lnr-book"></i> <span>Pages</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                      <ul id="menu-academico-sub" >
+                        <li id="menu-academico-avaliacoes" ><a href="login.html">Login</a></li>
+                        <li id="menu-academico-boletim" ><a href="register.html">Register</a></li>
+                      <li id="menu-academico-boletim" ><a href="404.html">404</a></li>
+                      <li id="menu-academico-boletim" ><a href="sign.html">Sign up</a></li>
+                      <li id="menu-academico-boletim" ><a href="profile.html">Profile</a></li>
+                      </ul>
+                   </li>
+                   <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Mail Box</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                     <ul>
+                    <li><a href="inbox.html"><i class="fa fa-inbox"></i> Inbox</a></li>
+                    <li><a href="compose.html"><i class="fa fa-pencil-square-o"></i> Compose Mail</a></li>
+                      <li><a href="editor.html"><span class="lnr lnr-highlight"></span> Editors Page</a></li>
+                  
+                    </ul>
+                  </li>
+                      <li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Components</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                     <ul id="menu-academico-sub" >
+                      <li id="menu-academico-avaliacoes" ><a href="grids.html">Grids</a></li>
+                      <li id="menu-academico-boletim" ><a href="media.html">Media Objects</a></li>
+
+                      </ul>
+                   </li>
+                  <li><a href="chart.html"><i class="lnr lnr-chart-bars"></i> <span>Charts</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul>
+                    <li><a href="map.html"><i class="lnr lnr-map"></i> Maps</a></li>
+                    <li><a href="graph.html"><i class="lnr lnr-apartment"></i> Graph Visualization</a></li>
+                  </ul>
+                  </li>
+                  <li id="menu-comunicacao" ><a href="#"><i class="fa fa-smile-o"></i> <span>More</span><span class="fa fa-angle-double-right" style="float: right"></span></a>
+                     <ul id="menu-comunicacao-sub" >
+                    <li id="menu-mensagens" style="width:120px" ><a href="project.html">Projects <i class="fa fa-angle-right" style="float: right; margin-right: -8px; margin-top: 2px;"></i></a>
+                      <ul id="menu-mensagens-sub" >
+                      <li id="menu-mensagens-enviadas" style="width:130px" ><a href="ribbon.html">Ribbons</a></li>
+                      <li id="menu-mensagens-recebidas"  style="width:130px"><a href="blank.html">Blank</a></li>
+                      </ul>
+                    </li>
+                    <li id="menu-arquivos" ><a href="500.html">500</a></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </div>
+                </div>
+                <div class="clearfix"></div>    
+              </div>
+            </div>
+          </div>
+                            <script>
+              var toggle = true;
+                    
+              $(".sidebar-icon").click(function() {                
+                if (toggle)
+                {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+                }
+                else
+                {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                  $("#menu span").css({"position":"relative"});
+                }, 400);
+                }
+                      
+                      toggle = !toggle;
+                    });
+              </script>
+<!--js -->
+  <script src="{% static 'invictus/js/js/jquery.nicescroll.js' %}"></script>
+  <script src="{% static 'invictus/js/js/scripts.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+   <script src="{% static 'invictus/js/js/bootstrap.min.js' %}"></script>
+{% endblock %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Loan Calculator</title>
+<style type="text/css">
+  .slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Enter Loan Data:</h1>
+<p>Amount of the loan ($):</p>
+    <div class="slidecontainer">
+      <input type="range" min="1000" max="10000" value="50" class="slider" id="amount" onchange="calculate();" data-rangeslider> 
+    </div>
+
+<div><input id="amount_"></div>
+<p>Annual interest (%):</p>
+  <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="1" class="slider" id="apr" data-rangeslider onchange="calculate();"> 
+  </div>
+<div><input id="interest"></div>
+<p>Repayment period (years):</p>
+  <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="1" class="slider" id="years" data-rangeslider onchange="calculate();">
+    </div>
+<div><input id="period"></div>
+<p>Approximate Payments:</p>
+<p>Monthly payment:</p>
+<input id="payment" value="0">
+<p>Total payment:</p>
+<input id="total" value="0">
+<p>Total interest:</p>
+<input id="totalinterest" value="0">
+
+<!-- The rest of this example is JavaScript code in the <script> tag below -->
+<!-- Normally, this script would go in the document <head> above but it -->
+<!-- is easier to understand here, after you've seen its HTML context. -->
+<script>
+
+var slider = document.getElementById("amount");
+document.getElementById("amount_").value = slider.value;
+
+slider.oninput = function() {
+document.getElementById("amount_").value = this.value;
+}
+
+var inte = document.getElementById("apr");
+document.getElementById("interest").value = inte.value;
+
+inte.oninput = function() {
+document.getElementById("interest").value = this.value;
+}
+
+var peri = document.getElementById("years");
+document.getElementById("period").value = peri.value;
+
+peri.oninput = function() {
+document.getElementById("period").value = this.value;
+}
+
+</script>
+
+<script>
+"use strict";
+
+function calculate() {
+// Look up the input and output elements in the document
+var amount = document.getElementById("amount");
+var apr = document.getElementById("apr");
+var years = document.getElementById("years");
+var payment = document.getElementById("payment");
+var total = document.getElementById("total");
+var totalinterest = document.getElementById("totalinterest");
+
+// Get the user's input from the input elements. Assume it is all valid.
+// Convert interest from a percentage to a decimal, and convert from
+// an annual rate to a monthly rate. Convert payment period in years
+// to the number of monthly payments.
+var principal = parseFloat(amount.value);
+var interest = parseFloat(apr.value) / 100 / 12;
+var payments = parseFloat(years.value) * 12;
+// Now compute the monthly payment figure.
+var x = Math.pow(1 + interest, payments); // Math.pow() computes powers
+var monthly = (principal*x*interest)/(x-1);
+// If the result is a finite number, the user's input was good and
+// we have meaningful results to display
+document.getElementById("payment").value = monthly.toFixed(2);
+document.getElementById("total").value = (monthly * payments).toFixed(2);
+document.getElementById("totalinterest").value = ((monthly*payments)-principal).toFixed(2);
+
+}
+
+</script>
+</body>
+</html>
+
+@csrf_exempt
+def member_reg(request):
+         if request.method == 'POST':
+            if request.POST.get('fullname') and request.POST.get('dob') and request.POST.get('idno')  and request.POST.get('mobile')  and request.POST.get('email')  and request.POST.get('employer')  and request.POST.get('address')  and request.POST.get('county')  and request.POST.get('religion')   and request.POST.get('month_cont')  and request.POST.get('kin_fullname')  and request.POST.get('kin_ID')  and request.POST.get('kin_relation')  and request.POST.get('kin_phone')  and request.POST.get('datestamp')  and request.POST.get('transaction_reference]'):
+                post=Member_reg()
+                post.fullname= request.POST.get('fullname')
+                post.dob= request.POST.get('dob')
+                post.idno= request.POST.get('idno')
+                post.mobile= request.POST.get('mobile')
+                post.email= request.POST.get('email')
+                post.employer= request.POST.get('employer')
+                post.address = request.POST.get('address')
+                post.county = request.POST.get('county')
+                post.religion = request.POST.get('religion')
+                post.kin_ID = request.POST.get('kin_ID')
+                post.kin_phone = request.POST.get('kin_phone')
+                post.kin_relation = request.POST.get('kin_relation')
+                post.kin_fullname = request.POST.get('kin_fullname')
+                post.datestamp = request.POST.get('datestamp')
+                post.transaction_reference = request.POST.get('transaction_reference')
+                post.save() 
+                
+                return render(request, 'invictus/member_reg.html')
+            
+
+         else:
+                return render(request, 'invictus/member_reg.html')
+
+            
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+  <!-- contact -->
+  <div class="w3ls-section contact" style="background-color: white;">
+      <div class="contact_wthreerow agileits-w3layouts">
+        <div class="w3l_contact_form" style="margin-left: 10px;">
+          <h4 style="font-size: 36px;">Contact Form</h4>          
+          <form action="" method="POST">  
+                     <div class="panel panel-default">
+          <div class="panel-body">
+            <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Personal details</a></li>
+      <li><a href="#tab2" data-toggle="tab">Monthly contribution</a></li>
+      <li><a href="#tab3" data-toggle="tab">Next of Kin</a></li>
+       <li><a href="#tab4" data-toggle="tab">Registration Fees</a></li>
+       <li><a href="#tab5" data-toggle="tab">By-laws agreement & Submit</a></li>
+  </ul>
+  <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <p>Fill in all the fields below.</p>
+        <p style="color: #44e221; font-size: 20px;">Full name</p> 
+        <input type="text" name="fullname" placeholder="Full name" required=""> 
+        <p style="color: #44e221; font-size: 20px;">Date of birth</p>
+          <input placeholder="Date of birth" type="text" id="date" name="dob" value="" />
+        <p> E.g., 10/02/2018</p>
+        <p style="color: #44e221; font-size: 20px;">ID NUMBER</p>
+        <input placeholder="ID Number" type="text" name="idno" value="" maxlength="8"/>
+        <p style="color: #44e221; font-size: 20px;">Mobile Number</p>
+        <input placeholder="Mobile Number" type="text" name="mobile" value="" maxlength="8"/>
+        <p style="color: #44e221; font-size: 20px;">Email Address</p>
+        <input placeholder="Email" type="email" name="email" value=""/>
+        <p style="color: #44e221; font-size: 20px;">Employer</p>
+        <input placeholder="Employer" type="text" name="employer" value=""/>
+        <p style="color: #44e221; font-size: 20px;">Address</p>
+        <input placeholder="Address" type="text" name="address" value=""/>
+        <p style="color: #44e221; font-size: 20px;">Region</p>
+        <select placeholder="Region" name="county"><option value="" selected="selected">- Select -</option><option value="NAIROBI">NAIROBI</option><option value="MOMBASA">MOMBASA</option><option value="KWALE">KWALE</option><option value="KILIFI">KILIFI</option><option value="TANA_RIVER">TANA RIVER</option><option value="TAITA_TAVETA">TAITA TAVETA</option><option value="GARISA">GARISA</option><option value="WAJIR">WAJIR</option><option value="MANDERA">MANDERA</option><option value="MARSABIT">MARSABIT</option><option value="ISIOLO">ISIOLO</option><option value="MERU">MERU</option><option value="THARAKA_NITHI">THARAKA NITHI</option><option value="EMBU">EMBU</option><option value="KITUI">KITUI</option><option value="MACHAKOS">MACHAKOS</option><option value="MAKUENI">MAKUENI</option><option value="NYANDARUA">NYANDARUA</option><option value="NYERI">NYERI</option><option value="KIRINYAGA">KIRINYAGA</option><option value="MURANGA">MURANGA</option><option value="KIAMBU">KIAMBU</option><option value="TURKANA">TURKANA</option><option value="WEST_POKOT">WEST POKOT</option><option value="SAMBURU">SAMBURU</option><option value="TRANS_NZOIA">TRANS NZOIA</option><option value="UASIN_GISHU">UASIN-GISHU</option><option value="ELGEYO_MARAKWET">KEIYO MARAKWET</option><option value="NANDI">NANDI</option><option value="BARINGO">BARINGO</option><option value="LAIKIPIA">LAIKIPIA</option><option value="NAKURU">NAKURU</option><option value="NAROK">NAROK</option><option value="KAJIADO">KAJIADO</option><option value="BOMET">BOMET</option><option value="KERICHO">KERICHO</option><option value="KAKAMEGA">KAKAMEGA</option><option value="VIHIGA">VIHIGA</option><option value="BUNGOMA">BUNGOMA</option><option value="BUSIA">BUSIA</option><option value="SIAYA">SIAYA</option><option value="KISUMU">KISUMU</option><option value="HOMABAY">HOMABAY</option><option value="MIGORI">MIGORI</option><option value="KISII">KISII</option><option value="NYAMIRA">NYAMIRA</option><option value="LAMU">LAMU</option></select>
+        <p style="color: #44e221; font-size: 20px;">Religion</p>
+        <input placeholder="Religion" type="text" name="religion" value=""/>
+          <br>
+          <br>
+          <a class="btn btn-primary btnNext" >Next</a>
+
+      </div>
+      <div class="tab-pane" id="tab2">
+        <p>How much do you commit to contribute every month?</p>
+        <p>Minimum 500ksh per month</p>
+        <p style="color: #44e221; font-size: 20px;">Monthly Contribution</p>
+        <input placeholder="Monthly Contribution" type="text" name="month_cont" value=""/>
+        <br>
+        <br>
+          <a class="btn btn-primary btnPrevious" >Previous</a>
+          <a class="btn btn-primary btnNext" >Next</a>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <br>
+        <p>I the under mentioned, in the event of death, hereby instruct the society to pay all the amount due to me 
+less any debt to the society to the person named below. I understand I may alter the name of the 
+nominated next of kin by filling in a subsequent nominated next of kin form.</p>
+          <p style="color: #44e221; font-size: 20px;">Next of kin Full name</p>
+          <input placeholder="Full name" type="text" name="kin_fullname" value=""/>
+          <p style="color: #44e221; font-size: 20px;">Nex of Kin ID Number</p>
+          <input placeholder="ID Number" type="text" name="kin_ID" value=""/>
+          <p style="color: #44e221; font-size: 20px;">Relationship</p>
+          <input placeholder="Relationship" type="text" name="kin_relation" value=""/>
+           <p style="color: #44e221; font-size: 20px;">Next of Kin Phone Number</p>
+           <input placeholder="Phone Number" type="text" name="kin_phone" value=""/>
+          <br>
+          <br>
+          <a class="btn btn-primary btnPrevious" >Previous</a>
+          <a class="btn btn-primary btnNext" >Next</a>
+      </div>
+            
+        <div class="tab-pane" id="tab4">
+          <br>
+              <p>You are required to pay a registration fee of 1000Ksh.</p>
+              <ul>
+                <li>Go to your MPESA and select pay bill option</li>
+                <li>Enter business number 821945</li>
+                <li>Enter your ID number as account number</li>
+                <li>Enter amount</li>
+              </ul> 
+              <p>You will receive confirmation from MPESA, enter transaction reference in the field below</p>
+              <p style="color: #44e221; font-size: 20px;">MPESA transaction code</p>
+              <input placeholder="MPESA reference code" type="text" name="transaction_reference" value=""/>
+
+        <br>
+        <br>
+          <a class="btn btn-primary btnPrevious" >Previous</a>
+          <a class="btn btn-primary btnNext" >Next</a>
+      </div>
+        <div class="tab-pane" id="tab5">
+          <br>
+          <p>
+            By clicking submit button, I, the applicant therefore hereby agree to abide by the society’s by-laws and any amendments thereof.
+          </p>
+          <br>
+          <input type="submit"  value="Submit" />
+          </form>
+        <br>
+        <br>
+          <a class="btn btn-primary btnPrevious" >Previous</a>
+      </div>
+  </div>          
+          </div>
+        </div>
+
+        </div>
+        
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  <!-- //contact --> 
+
+<script type="text/javascript">
+ $('.btnNext').click(function(){
+  $('.nav-tabs > .active').next('li').find('a').trigger('click');
+});
+
+  $('.btnPrevious').click(function(){
+  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+});
+</script>
+<!--/// MAIN FORM END -->
+
+{% endblock %}

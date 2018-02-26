@@ -1,0 +1,66 @@
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+
+	<div class=" w3ls-section" id="inner-about" style="background-color: white;">
+		<div class="container">
+			<h3 class="h3-w3l" style="color: #21a7e2;">Investment Shares</h3>
+		<div class="row content">
+			<img src="{% static 'invictus/images/open_acc.jpeg' %}" style="height: 300px;" alt=" " class="img-responsive"/>
+			
+		</div>
+		<hr>
+		<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-4 sidenav">
+    	 <h3 style="color: #44e221;">Investment Shares</h3>
+      <br>
+     <p>
+     	Owning Unaitas Sacco shares means you are a member, as well as an owner; with equal rights and a voice in how the society is ran democratically.
+
+		Unaitas investment shares are available to any adult (18 years and above) Kenyan willing to join or invest in the Sacco upon positive identification to the satisfaction of a member care officer.
+
+		Each member shall purchase at least one hundred shares of Ksh.10 each. Shares are not refundable or assignable as collateral for a loan.
+		Shares may earn dividends paid from net surplus at the end of a financial year.
+     </p>
+    	
+	  <br> 
+	  <img src="{% static 'invictus/images/statutory1.jpeg' %}"  alt=" " class="img-responsive"/> 
+    </div>
+    <div class="col-sm-4 text-left"> 
+    	<img src="{% static 'invictus/images/statutory.jpeg' %}"  alt=" " class="img-responsive"/> 
+      <h3 style="color: #44e221;">Features</h3>
+    	<br>
+    	 <ul class="list-group">
+	  <li class="list-group-item">1 Share costs Kshs. 10.</li>
+	  <li class="list-group-item">Minimum 100 shares at Kshs.1000.</li>
+	  <li class="list-group-item">Current maximum investment shares 2,000,000 worth Kshs. 20,000,000..</li>
+	  <br>
+	</ul>
+</div>
+    <div class="col-sm-4 sidenav">
+    	<h3 style="color: #44e221;">Loan products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Development Loan</a>
+		  <a href="#" class="list-group-item">Biashara Loan</a>
+		  <a href="#" class="list-group-item">Salary Advance</a>
+		  <a href="#" class="list-group-item">Business Quick Fix</a>
+		  <br><hr>
+		  <h3 style="color: #44e221;">Saving products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Timiza savings account</a>
+		  <a href="#" class="list-group-item">Jipange Investment account</a>
+		</div>       
+    </div>
+  </div>
+</div>
+	
+		</div>	
+			
+
+			
+	</div>
+
+{% endblock %}

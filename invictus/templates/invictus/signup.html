@@ -1,0 +1,62 @@
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+
+	<div class=" w3ls-section" id="inner-about" style="background-color: white;">
+		<div class="container">
+			<h3 class="h3-w3l" style="color: #21a7e2;">Timiza Savings Account</h3>
+		
+		<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+    <img src="{% static 'invictus/images/banner.jpg' %}" style="height: 150px;" alt=" " class="img-responsive"/>
+    </div>
+    <div class="col-sm-7 text-left"> 
+      <h3>What is it?</h3>
+     <h2>Sign up</h2>
+     <p>Dear {{ names }}, your Member Registration No. is {{ member_n }}</p>
+     <P>You are now required to set your passsword where your username will be your Registration No. {{  member_n }}</P>
+  <form method="post">
+    {% csrf_token %}
+      {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="display: none">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+      {% endfor %}
+
+    <button type="submit">Sign up</button>
+  </form>
+    </div>
+    <div class="col-sm-2 sidenav">
+    	<h3 style="color: #44e221;">Loan products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Development Loan</a>
+		  <a href="#" class="list-group-item">Biashara Loan</a>
+		  <a href="#" class="list-group-item">Salary Advance</a>
+		  <a href="#" class="list-group-item">Business Quick Fix</a>
+		  <br><hr>
+		  <h3 style="color: #44e221;">Saving products</h3>
+    	<br>
+    	 <div class="list-group">
+		  <a href="#" class="list-group-item">Timiza savings account</a>
+		  <a href="#" class="list-group-item">Jipange Investment account</a>
+		</div>       
+    </div>
+  </div>
+</div>
+	
+		</div>	
+			
+
+			
+	</div>
+
+{% endblock %}

@@ -1,0 +1,224 @@
+{% extends "invictus/header.html" %}
+{% block content %}
+{% load static from staticfiles %}
+
+<head>
+  <style type="text/css">
+    
+/*  bhoechie tab */
+div.bhoechie-tab-container{
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 0 !important;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  border:1px solid #ddd;
+  margin-top: 20px;
+  margin-left: 50px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  background-clip: padding-box;
+  opacity: 0.97;
+  filter: alpha(opacity=97);
+}
+div.bhoechie-tab-menu{
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+  border-right:1px solid #e6e8ed;
+}
+div.bhoechie-tab-menu div.list-group{
+  margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a{
+  margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a .glyphicon,
+div.bhoechie-tab-menu div.list-group>a .fa {
+  color: #21a7e2;
+}
+div.bhoechie-tab-menu div.list-group>a:first-child{
+  border-top-right-radius: 0;
+  -moz-border-top-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a:last-child{
+  border-bottom-right-radius: 0;
+  -moz-border-bottom-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a.active,
+div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+div.bhoechie-tab-menu div.list-group>a.active .fa{
+  background-color:#ffffff;
+  background-image: #44e221;
+  color: #21a7e2;
+}
+div.bhoechie-tab-menu div.list-group>a.active:after{
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -13px;
+  border-left: 0;
+  border-bottom: 13px solid transparent;
+  border-top: 13px solid transparent;
+  border-left: 10px solid  #142340;
+}
+
+div.bhoechie-tab-content{
+  background-color: #ffffff;
+  /* border: 1px solid #eeeeee; */
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+div.bhoechie-tab div.bhoechie-tab-content:not(.active){
+  display: none;
+}
+.bhoechie-tab-content h4{
+  color: #44e221;
+
+}
+.bhoechie-tab-content button{
+  padding: 25px;
+  margin-top: 20px
+  background-color:#44e221;
+}
+
+
+  </style>
+</head>
+  <div class="w3ls-section contact" style="background-color: white;">
+<div class="container">
+  <div class="row">
+        <div class="col-md-12 bhoechie-tab-container">
+            <div class="col-md-2 bhoechie-tab-menu">
+              <div class="list-group">
+                <div class="profile" align="center" valign="center">  
+                <br>                
+                  <img src="{% static 'invictus/images/13.jpg' %}" class="img-circle" alt="Profile Photo" width="100px" height="100px"> 
+                  <h3>Welcome <br> {{ details.fullname }}</h3>
+                  <h5>Account No.</h5><h5>{{ details.member_no }}</h5>
+                </div>
+                <hr>
+                 
+                 <div class="list-group-item text-center">
+                  <a href="/member_portal/"><h4>My Profile</h4></a>
+                </div>
+                <a href="#account" data-toggle="pill" class="list-group-item active text-center">
+                  <h4>My Account</h4>
+                </a>                
+                <div class="list-group-item text-center">
+                  <a href="/loans/"><h4>Loans</h4></a>
+                </div>
+                <div class="list-group-item text-center">
+                  <a href="/savings/"><h4>Savings</h4></a>
+                </div>
+                <div class="list-group-item text-center">
+                  <a href="/help/"><h4>Help</h4></a>
+                </div>
+              </div>
+            </div>
+            <div class=" bhoechie-tab col-md-10">
+              
+                
+                <div id="profile" class="bhoechie-tab-content">
+                   
+                </div>
+                <div id="account" class="bhoechie-tab-content col-md-12 active container">
+                    <center>
+                      <div class="row info" style="border-bottom:1px solid #e6e8ed;padding-bottom: 10px;">
+                        <h4>My Account</h4>
+                      </div>
+                   </center>
+                   <div class="row">
+                    <br>
+                   <div class="container col-md-7" style="border-right: 1px solid #e6e8ed;" >
+                       <ul class="list-group">
+                          <li class="list-group-item"><strong>Account Balance: </strong>Ksh. {{ acc.acc_balance }}</li>
+                          <li class="list-group-item"><strong>Monthly Contribution: </strong>{{ details.month_cont }}</li>
+                          <li class="list-group-item"><strong>Account created on.: </strong>{{ details.datestamp }}</li>
+                          <li class="list-group-item"><strong>Email: </strong>{{ details.email }}</li>
+                          <li class="list-group-item"><strong>Phone No.: </strong>0{{ details.mobile }}</li>
+                        </ul> 
+                    </div>
+                    <div class="container col-md-5">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h5 class="panel-title asd">
+                  <a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Monthly Contribution
+                  </a>
+                </h5>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                <div class="panel-body panel_text">
+                  <div class="w3l_contact_form">
+                    <form action="" method="POST">
+                      Account No.
+                      <input type="text" name="account" value="{{ details.member_no }}" readonly="" required="">
+                      Amount
+                      <input type="text" name="amount" value="{{ details.month_cont }}" readonly="" required="">
+                      <center>
+                        <br>
+                      <input type="submit" value="Pay" name="pay">
+                    </center>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h5 class="panel-title asd">
+                  <a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Mini Statement
+                  </a>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+                <div class="panel-body panel_text">
+                  <div class="w3l_contact_form">
+                    <form action="" method="POST">
+                      Email
+                      <input type="email" name="email" value="{{ details.email }}" readonly="" required="">
+                      <center>
+                      <input type="submit" value="Get Mini Statement" name="mini">
+                    </center>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+                    </div>
+                    </div>  
+                </div>
+                <div class="bhoechie-tab-content">
+                    
+                </div>
+                <div class="bhoechie-tab-content">
+                    
+                </div>
+                <div class="bhoechie-tab-content">
+                  
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+  </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+    });
+});
+</script>
+{% endblock %}

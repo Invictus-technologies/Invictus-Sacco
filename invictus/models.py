@@ -78,4 +78,51 @@ class Profile(models.Model):
     username = models.IntegerField()
     email = models.EmailField(max_length=100 ,  null=True)
     set_password = models.CharField(max_length=100)
+
+class Accounts(models.Model):
+    member_no = models.IntegerField()
+    acc_balance = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Transact(models.Model):
+    member_no = models.IntegerField()
+    trans_time = models.DateTimeField(auto_now_add=True)
+    deposit = models.IntegerField()
+    acc_balance = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Jipange_Acc(models.Model):
+    member_no = models.IntegerField()
+    trans_time = models.DateTimeField(auto_now_add=True)
+    acc_balance = models.IntegerField()
+
+    def __str__(self):
+        return self.name
     
+class Timiza_Acc(models.Model):
+    member_no = models.IntegerField()
+    trans_time = models.DateTimeField(auto_now_add=True)
+    acc_balance = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Fixed_Acc(models.Model):
+    member_no = models.IntegerField()
+    trans_time = models.DateTimeField(auto_now_add=True)
+    acc_balance = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Help(models.Model):
+    member_no = models.IntegerField()
+    question = models.CharField(max_length=100)
+    trans_time = models.DateTimeField(auto_now_add=True)    
+
+    def __str__(self):
+        return self.name

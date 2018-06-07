@@ -1,9 +1,3 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 body{
 	margin:0;
 	font-family: 'Open Sans', sans-serif;
@@ -191,6 +185,7 @@ a.w3_agile_vimeo:hover{
 	float:none;
     margin: 0 1em;
 }
+
 .navbar-default .navbar-nav > li > a ,.dropdown-menu > li > a{
     color: #fff;
     font-size: 1.2em;
@@ -444,7 +439,6 @@ a.w3_agile_vimeo:hover{
 	-moz-background-size: cover;
     background-size: cover; 
 	position: relative;
-	min-height:700px;
 }
 .banner-textagileinfo {
     padding: 5em;
@@ -525,7 +519,7 @@ a.w3_agile_vimeo:hover{
 /*-- //banner-bottom --*/
 /*-- about --*/
 .w3ls-section{
-	padding:5em 0;
+	padding:3em 0;
 } 
 div#inner-about {
     padding-bottom: 2em;
@@ -1274,6 +1268,9 @@ h3.agileits-icons-title {
 	.icon-box {
 		margin: 0;
 	}
+    .navbar-nav > li {
+    margin: 0 3px;
+}
 }
 @media (max-width: 640px){
 	.icon-box {
@@ -2152,6 +2149,9 @@ form.wthree-subsribe {
 	.w3ls_about_guage { 
 		padding: 0 .5em;
 	}
+    ul.w3l-nav-top{
+        padding-right: 10px;
+    }
 	.agileits-title {
 		width: 100%;
 		text-align: center;

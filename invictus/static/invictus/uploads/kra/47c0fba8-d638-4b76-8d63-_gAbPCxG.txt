@@ -1,0 +1,17 @@
+User requirements
+
+Objectives
+    • Invictus Sacco is a platform that enables users to access financial help and services easily.The system will be able to register users who  who wish to access the services of the sacco. 
+      
+    • The system uses RDMS to store and retrieve users data.
+
+    • Users are able to access loan information prior to accessing the loans so they can make informed decisions beforehand.
+
+    • The user is also able to access their account details through the accounts page. User can also change the look and feel of their account profiles once they have logged in hence meeting their preferences.
+
+      
+The system is designed in a user friendly manner to ensure users have an easy time interacting with the system. It provides an awesome simple to use interface that any user can be able to use without further assistance.
+
+Users are expected to submit their details to the system for verification and account opening. Once verified users are able to sign in and a member number is automatically provided for them which will be used to login into the system.
+
+To borrow a loan users must have an account and a good financial history with the credits regulations board of Kenya.

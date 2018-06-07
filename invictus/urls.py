@@ -26,5 +26,12 @@ urlpatterns = [
     url(r'^login/', views.login_view, name='login'),
     url(r'^logout/', views.logout_view, name='logout'),
     url(r'^member_portal/', views.member_portal, name='member_portal'),
+    url(r'^accounts/', views.accounts, name='accounts'),
+    url(r'^help/', views.help, name='help'),
+    url(r'^loans/', views.loans, name='loans'),
+    url(r'^savings/', views.savings, name='savings'),
+    url(r'^invictusadmin/', views.invictusadmin, name='invictusadmin'),
+    url(r'^invictusmembers/', views.invictusmembers, name='invictusmembers'),
+    url(r'^invictusapprovemembers/', views.invictusapprovemembers, name='invictusapprovemembers'),
 
     ]

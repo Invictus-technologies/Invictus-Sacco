@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import Contact
-from .models import Member_reg
 from .models import reg_members
 from .models import Profile
+from .models import Accounts
+from .models import Transact
+from .models import Jipange_Acc
+from .models import Timiza_Acc
+from .models import Fixed_Acc
+from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 import datetime
 from django.db.models import Avg, Max, Min, Sum
@@ -21,6 +26,8 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import MySQLdb
 
 # Create your views here.
 def index(request):
@@ -65,6 +72,7 @@ def investment(request):
 def sacco_dep(request):
     return render(request, 'invictus/sacco_dep.html')
 
+
 @csrf_exempt
 def contact(request):
         if request.method == 'POST':
@@ -106,12 +114,21 @@ def member_regi(request):
                 maxid = reg_members.objects.order_by('-id')[0] 
                 p = maxid.id
                 post.member_no = p + 10000
+                post1=Accounts()
+                post1.member_no = p + 10000
+                post1.phone = request.POST.get('mobile')
+                post1.email= request.POST.get('email')
+                post1.acc_balance = 0
+                post1.save()
                 
 
                 if post.save():
+                    
+
                     return render(request, 'invictus/member_reg.html')               
                    
                 else:
+
                 	request.session['post.fullname'] = post.fullname
                 	request.session['post.idno'] = post.idno
                 	request.session['post.member_no'] = post.member_no
@@ -138,9 +155,11 @@ def upload(request):
     else:
         form = DocumentForm(initial = {'idno':request.session['post.idno']})
         fullname = request.session['post.fullname']
-    return render(request, 'invictus/upload.html', {'form': form , 'names' : fullname })
+        return render(request, 'invictus/upload.html', {'form': form , 'names' : fullname })
 
 def signup(request):
+    fname = request.session['post.fullname']
+    member_n = request.session['post.member_no']
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
@@ -159,12 +178,16 @@ def signup(request):
             email = EmailMessage(
                         mail_subject, message, to=[to_email]
             )
-            email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            if email.send():
+                return HttpResponse('Please confirm your email address to complete the registration into Invictus Sacco.')
+            else:
+                form = SignupForm(initial = {'username':request.session['post.member_no']})
+                messages.info(request, 'Unsuccesful!!.Please try again.')
+                return render(request, 'invictus/signup.html', {'form': form , 'names' : fname , 'member_n' : member_n})
+
     else:
         form = SignupForm(initial = {'username':request.session['post.member_no']})
-        fname = request.session['post.fullname']
-        member_n = request.session['post.member_no']
+
     return render(request, 'invictus/signup.html', {'form': form , 'names' : fname , 'member_n' : member_n})
 
 def activate(request, uidb64, token):
@@ -183,27 +206,278 @@ def activate(request, uidb64, token):
 
 @csrf_exempt
 def login_view(request):
-	if request.method == 'POST':
-	    username = request.POST.get('username', '')
-	    password = request.POST.get('password', '')
-	    user = auth.authenticate(username=username, password=password)
-	    if user is not None and user.is_active:
-	        # Correct password, and the user is marked "active"
-	        auth.login(request, user)
-	        # Redirect to a success page.
-	        return redirect("/")
-	    else:
-	        # Show an error page
-	        return render(request, 'invictus/login.html', {'error': 'Your username or password is invalid.' })
-	else:
-		return render(request, 'invictus/login.html')
+    if request.method == 'POST':
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
 
-
+        if user is not None and user.is_active:
+            request.session['user_name'] = username
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            return render(request, 'invictus/login.html', {'error': 'Your username or password is invalid.' })
+    else:
+        return render(request, 'invictus/login.html')
 
 def logout_view(request):
     auth.logout(request)
     # Redirect to a success page.
+    for sesskey in request.session.keys():
+        del request.session[sesskey]
     return redirect("/")
 
 def member_portal(request):
-    return render(request, 'invictus/member_portal.html')
+    if request.user.is_authenticated():
+        reg = request.session['user_name']
+        try:
+            details = reg_members.objects.get(member_no=reg)
+        except reg_members.DoesNotExist:
+            raise Http404("Question does not exist")
+        return render(request, 'invictus/member_portal.html', {'reg': reg , 'details' : details})
+    else:
+        messages.info(request, 'You must be logged in to access the portal!')
+        return redirect('login')
+
+@csrf_exempt
+def accounts(request):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            if 'pay' in request.POST:
+                if request.POST.get('account') and request.POST.get('amount'):
+                    post=Accounts()
+                    post.member_no= request.POST.get('account')
+                    #cash = Accounts.objects.filter(Q(member_no=request.POST.get('account')) | Q(somefield='bar'))
+                    details = Accounts.objects.get(member_no=request.POST.get('account'))
+                    p = details.acc_balance
+                    q = 0
+                    q += int(request.POST.get('amount')) 
+                    post.acc_balance = p + q
+                    Accounts.objects.filter(member_no=request.POST.get('account')).update(acc_balance= post.acc_balance)
+                    post1=Transact()
+                    post1.member_no= request.POST.get('account')
+                    post1.deposit = request.POST.get('amount')
+                    post1.acc_balance = post.acc_balance
+                    post1.save() 
+                    reg = request.session['user_name']
+                    try:
+                        details = reg_members.objects.get(member_no=reg)
+                        acc = Accounts.objects.get(member_no=reg)            
+                    except reg_members.DoesNotExist:
+                        raise Http404("Member Does Not Exist.")
+                    return render(request, 'invictus/accounts.html', {'reg': reg , 'details' : details ,'acc' : acc})
+            elif 'mini' in request.POST:
+                if request.POST.get('email'):
+                    post=Accounts()
+                    reg = request.session['user_name']
+                    try:
+                        details = reg_members.objects.get(member_no=reg)
+                        acc = Accounts.objects.get(member_no=reg)            
+                    except reg_members.DoesNotExist:
+                        raise Http404("Member Does Not Exist.")
+                    return render(request, 'invictus/accounts.html', {'reg': reg , 'details' : details ,'acc' : acc})
+
+
+        else:
+            reg = request.session['user_name']
+            try:
+                details = reg_members.objects.get(member_no=reg)
+                acc = Accounts.objects.get(member_no=reg)            
+            except reg_members.DoesNotExist:
+                raise Http404("Member Does Not Exist.")
+            return render(request, 'invictus/accounts.html', {'reg': reg , 'details' : details ,'acc' : acc})
+    else:
+        messages.info(request, 'You must be logged in to access the portal!')
+        return redirect('login')
+
+def help(request):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            reg = request.session['user_name']
+            if 'help' in request.POST:
+                if request.POST.get('account') and request.POST.get('question'):
+                    post.Help()
+                    post.member_no = request.POST.get('account')
+                    post.question = request.POST.get('question')
+                    post.save()
+                    return redirect('help')
+
+        else:
+            reg = request.session['user_name']
+            try:
+                details = reg_members.objects.get(member_no=reg)
+                acc = Accounts.objects.get(member_no=reg)            
+            except reg_members.DoesNotExist:
+                raise Http404("Member Does Not Exist.")
+            return render(request, 'invictus/help.html', {'reg': reg , 'details' : details ,'acc' : acc})
+    else:        
+        messages.info(request, 'You must be logged in to access the portal!')
+        return redirect('login')
+
+def loans(request):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            reg = request.session['user_name']
+            if 'help' in request.POST:
+                if request.POST.get('account') and request.POST.get('question'):
+                    post.Help()
+                    post.member_no = request.POST.get('account')
+                    post.question = request.POST.get('question')
+                    post.save()
+                    return redirect('loans')
+
+        else:
+            reg = request.session['user_name']
+            try:
+                details = reg_members.objects.get(member_no=reg)
+                acc = Accounts.objects.get(member_no=reg)            
+            except reg_members.DoesNotExist:
+                raise Http404("Member Does Not Exist.")
+            return render(request, 'invictus/loans.html', {'reg': reg , 'details' : details ,'acc' : acc})
+    else:        
+        messages.info(request, 'You must be logged in to access the portal!')
+        return redirect('login')
+
+@csrf_exempt
+def savings(request):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            if 'create' in request.POST:
+                reg = request.session['user_name']
+                if request.POST.get('account') == 'Jipange_Acc':
+                    if Jipange_Acc.objects.filter(member_no=reg).exists():                        
+                        return redirect('savings')
+                    else:
+                        post=Jipange_Acc()
+                        post.member_no = reg
+                        post.acc_balance = 0
+                        post.save()
+                        return redirect('savings')
+                elif request.POST.get('account') == 'Timiza_Acc':
+                    if Timiza_Acc.objects.filter(member_no=reg).exists():                        
+                        return redirect('savings')
+                    else:
+                        post=Timiza_Acc()
+                        post.member_no = reg
+                        post.acc_balance = 0
+                        post.save()
+                        return redirect('savings')
+                elif request.POST.get('account') == 'Fixed_Acc':
+                    if Fixed_Acc.objects.filter(member_no=reg).exists():                        
+                        return redirect('savings')
+                    else:
+                        post=Fixed_Acc()
+                        post.member_no = reg
+                        post.acc_balance = 0
+                        post.save()
+                        return redirect('savings')
+                else:
+                    return redirect('savings')
+            elif 'deposit' in request.POST:
+                reg = request.session['user_name']
+                if request.POST.get('account') == 'Jipange_Acc' and request.POST.get('amount'):
+                    if Jipange_Acc.objects.filter(member_no=reg).exists():
+                        post=Jipange_Acc()
+                        post.member_no = reg
+                        account = Jipange_Acc.objects.get(member_no=reg)
+                        p = 0
+                        p += int(account.acc_balance)
+                        q = 0
+                        q += int(request.POST.get('amount'))
+                        post.acc_balance = p + q
+                        Jipange_Acc.objects.filter(member_no=reg).update(acc_balance= post.acc_balance)
+                        return redirect('savings')
+                    else:
+                        return redirect('savings')
+                elif request.POST.get('account') == 'Timiza_Acc' and request.POST.get('amount'):
+                    if Timiza_Acc.objects.filter(member_no=reg).exists():
+                        post=Timiza_Acc()
+                        post.member_no = reg
+                        account = Timiza_Acc.objects.get(member_no=reg)
+                        p = 0
+                        p += int(account.acc_balance)
+                        q = 0
+                        q += int(request.POST.get('amount'))
+                        post.acc_balance = p + q
+                        Timiza_Acc.objects.filter(member_no=reg).update(acc_balance= post.acc_balance)
+                        return redirect('savings')
+                    else:
+                        return redirect('savings')
+                elif request.POST.get('account') == 'Fixed_Acc' and request.POST.get('amount'):
+                    if Timiza_Acc.objects.filter(member_no=reg).exists():
+                        post=Fixed_Acc()
+                        post.member_no = reg
+                        account = Fixed_Acc.objects.get(member_no=reg)
+                        p = 0
+                        p += int(account.acc_balance)
+                        q = 0
+                        q += int(request.POST.get('amount'))
+                        post.acc_balance = p + q
+                        Fixed_Acc.objects.filter(member_no=reg).update(acc_balance= post.acc_balance)
+                        return redirect('savings')
+                    else:
+                        return redirect('savings')
+                else:
+                    return redirect('savings')
+
+        else:
+            reg = request.session['user_name']
+            try:
+                details = reg_members.objects.get(member_no=reg)
+                acc = Accounts.objects.get(member_no=reg)
+                if Jipange_Acc.objects.filter(member_no=reg).exists():
+                   jip = Jipange_Acc.objects.get(member_no=reg)
+                   acco = 'Your account balance is: Ksh.'
+                else:
+                    acco = 'You do not have an account yet.'
+                    jip = 'Please Create an account.'
+                if Timiza_Acc.objects.filter(member_no=reg).exists():
+                   tim = Timiza_Acc.objects.get(member_no=reg)
+                   acco1 = 'Your account balance is: Ksh.'
+                else:
+                    acco1 = 'You do not have an account yet.'
+                    tim = 'Please Create an account.'
+                if Fixed_Acc.objects.filter(member_no=reg).exists():
+                   fix = Fixed_Acc.objects.get(member_no=reg)
+                   acco2 = 'Your account balance is: Ksh.'
+                else:
+                    acco2 = 'You do not have an account yet.'
+                    fix = 'Please Create an account.'
+            except reg_members.DoesNotExist:
+                raise Http404("Member Does Not Exist.")
+            return render(request, 'invictus/jipange_acc.html', {'reg': reg , 'details' : details ,'acc' : acc , 'jip' : jip , 'acco' : acco, 'tim' : tim ,'acco1' : acco1 ,'fix' :fix ,'acco2' : acco2})
+    else:
+        messages.info(request, 'You must be logged in to access the portal!')
+        return redirect('login')
+
+
+def invictusadmin(request):
+    return render(request, 'invictus/admin.html')
+
+def invictusmembers(request):
+    members_list = reg_members.objects.all()
+    paginator = Paginator(members_list, 5)
+
+    page = request.GET.get('page')
+    try:
+        members = paginator.page(page)
+    except PageNotAnInteger:
+        members = paginator.page(1)
+    except EmptyPage:
+        members = paginator.page(paginator.num_pages)
+
+    return render(request, 'invictus/invictus_members.html', {'members':members})
+
+def invictusapprovemembers(request):
+    members_list = reg_members.objects.all()
+    paginator = Paginator(members_list, 1)
+
+    page = request.GET.get('page')
+    try:
+        member_details = paginator.page(page)
+    except PageNotAnInteger:
+        member_details = paginator.page(1)
+    except EmptyPage:
+        member_details = paginator.page(paginator.num_pages)
+
+    return render(request, 'invictus/invictus_member_approve.html', {'member_details':member_details})

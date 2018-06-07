@@ -13,7 +13,7 @@
 <link href="{% static 'invictus/styles/font-awesome.css' %}" rel="stylesheet">   <!-- font-awesome icons --> 
 <!-- //Custom Theme files -->  
 <!-- js --> 
-  <script src="{% static 'invictus/js/jquery-2.2.3.min.js' %}"></script>
+ <script src="{% static 'invictus/js/jquery-2.2.3.min.js' %}"></script>
 <!-- web-fonts -->
 <link href="//fonts.googleapis.com/css?family=Secular+One" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -109,13 +109,14 @@ LEFT SECTION
     <div class="header-w3mdl"><!-- header-two --> 
       <div class="container"> 
         <div class="agileits-logo navbar-left">
-          <h2><a href="index.html"><img src="{% static 'invictus/images/invictus.JPG' %}" alt="logo" style='height:100px;width: 150px;' class="img-responsive" /></a></h2> 
+          <center>
+          <h2><a href="index.html"><img src="{% static 'invictus/images/invictus.JPG' %}" alt="logo" style='height:100px;width: 150px;' class="img-responsive" /></a></h2> </center>
         </div> 
         <div class="agileits-hdright nav navbar-nav">
           <div class="header-w3top"><!-- header-top --> 
             <ul class="w3l-nav-top">
               <li><i class="fa fa-phone"></i><span> 0795859352 </span></li> 
-              <li><a href="mailto:example@mail.com"><i class="fa fa-envelope-o"></i><span>gathage.ew@gmail.com</span></a></li>
+              <li><a href="mailto:example@mail.com"><i class="fa fa-envelope-o"></i><span>invictus@gmail.com</span></a></li>
             </ul>
             <div class="clearfix"> </div>    
           </div>
@@ -165,14 +166,15 @@ LEFT SECTION
             </li> 
             <li><a href="/timiza/" data-toggle="dropdown">Savings<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/timiza/">Timiza savings account</a></li>
                 <li><a href="/jipange">Jipange investment account</a></li>
+                <li><a href="/timiza/">Chama account</a></li>                
               </ul>
             </li> 
             <li><a href="/open_acc/" data-toggle="dropdown">Membership<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/open_acc/">Opening an account</a></li>
                 <li><a href="/member_reg/">Membership Application Form</a></li>
+                <li><a href="/member_portal/">Members Portal</a></li>
                 <li><a href="/statuary/">Statutory information</a></li>
                 <li><a href="/investment/">Investment shares</a></li>
                 <li><a href="/sacco_dep/">Sacco deposits</a></li>
@@ -198,6 +200,16 @@ LEFT SECTION
         </div>
       </nav>    
     </div>
+    <br>
+    <center>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li style="list-style-type: none;" {% if message.tags %} class="{{ message.tags }}"{% endif %}><h4>{{ message }}</h4></li>
+    {% endfor %}
+</ul>
+{% endif %}
+</center>
     <!-- banner-text -->
    {% block content %}
    {% endblock %} 

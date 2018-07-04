@@ -147,11 +147,22 @@ def upload(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             if form.save():
-             member_no = request.session['post.member_no']
-             request.session['post.member_no'] = member_no                  
-             return redirect('signup')
-
-               
+             fname = request.session['post.fullname']
+             current_site = get_current_site(request)
+             mail_subject = 'Invictus Sacco application submitted.'
+             message = render_to_string('invictus/welcome_email.html', {
+                'fname': fname,
+             })
+             to_email = form.cleaned_data.get('email')
+             email = EmailMessage(
+                        mail_subject, message, to=[to_email]
+             )
+             if email.send():                
+                return redirect('index')
+             else:
+                form = DocumentForm(initial = {'idno':request.session['post.idno']})
+                fullname = request.session['post.fullname']
+                return render(request, 'invictus/upload.html', {'form': form , 'names' : fullname })              
     else:
         form = DocumentForm(initial = {'idno':request.session['post.idno']})
         fullname = request.session['post.fullname']

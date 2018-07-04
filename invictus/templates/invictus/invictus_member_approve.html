@@ -185,30 +185,17 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
                 
                 <div class="bhoechie-tab-content col-md-12 active container">
                                     <div id="pending_applications" class="tab-pane fade in active">                    
-                  <div class="table-responsive-md">
-                  <table class="table table-sm">
-                  <thead class="thead-light">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">DOB</th>
-                      <th scope="col">ID-NO</th>                      
-                      <th scope="col">Mobile No.</th>
-                      <th scope="col">Application Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
                   
                    {% for member in  member_details %}
                    {# Each "member" is a Member model object. #}
-                   <tr>
-                      <th scope="row">{{ member.id }}</th>
-                      <td>{{ member.fullname }}</td>
-                      <td>{{ member.dob }}</td>
-                      <td>{{ member.idno }}</td>                      
-                      <td>{{ member.mobile }}</td>                      
-                      <td>{{ member.datestamp }}</td>
-                    </tr>
+                  
+                      
+                      {{ member.fullname }}
+                      {{ member.dob }}
+                      {{ member.idno }}                      
+                      {{ member.mobile }}                      
+                      {{ member.datestamp }}
+                    
                     
                     {% endfor %}
 
